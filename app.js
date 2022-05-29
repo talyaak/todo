@@ -86,7 +86,7 @@ var app =
 	// * Clear button, remove all & refresh page
 	clear.addEventListener("click", () => {
 	    console.log("pressed");
-	    localStorage.removeItem("TASKS");
+	    tasks = [];
 	    initUI();
 	});
 	// * Adds 'li' element for Task object
