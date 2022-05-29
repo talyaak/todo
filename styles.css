@@ -19,13 +19,12 @@ body {
   font-family: Roboto, serif;
   min-width: 550px;
 }
-body #garbage {
+body #garbage,
+body #edit,
+body #up-button,
+body #down-button {
   width: 16px;
   height: 16px;
-}
-body h1 {
-  grid-area: 1/2/2/3;
-  text-align: center;
 }
 body #ui-container {
   -webkit-box-shadow: 2px 2px 4px 3px rgba(22, 22, 22, 0.78);
@@ -35,26 +34,49 @@ body #ui-container {
 body div {
   background-color: white;
   grid-area: 2/2/3/3;
-  margin: 20px;
+  margin: 15px;
   margin-bottom: 10px;
   flex-direction: column;
   justify-content: flex-start;
 }
 body div #front-text {
-  margin: 15px;
-  margin-left: 18px;
+  display: flex;
+  flex-direction: row;
   font-size: 25px;
   font-weight: 700;
 }
+body div #front-text #github-icon {
+  height: 32px;
+  width: 32px;
+}
+body div #front-text h1 {
+  font-size: 30px;
+  margin: 0;
+  margin-left: 5px;
+}
 body div #new-task-form {
+  display: flex;
+  align-items: center;
   margin: 10px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 body div #new-task-form #new-task-title {
-  width: 380px;
+  height: 30px;
+  width: 400px;
+  font-size: 25px;
   border-color: rgb(92, 92, 92);
-  border-radius: 3px;
+  border-radius: 5px;
   margin-right: 3px;
+}
+body div #new-task-form #add {
+  height: 36px;
+  font-size: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(70, 182, 252);
+  color: white;
 }
 body div #scrollable-div {
   margin: 0px;
@@ -63,6 +85,9 @@ body div #scrollable-div {
   overflow-x: hidden;
   overflow-y: auto;
 }
+body div #scrollable-div ul {
+  margin-top: 5px;
+}
 body div #scrollable-div #list {
   display: flex;
   height: auto;
@@ -70,20 +95,35 @@ body div #scrollable-div #list {
   justify-content: space-around;
 }
 body div #scrollable-div #list li {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   padding: 10px;
   background-color: #e3e3e3;
   border-color: #333;
   border-radius: 3px;
   margin: 3px;
   margin-left: 10px;
-  width: 410px;
+  width: 420px;
+}
+body div #scrollable-div #list li label {
+  grid-area: 1/1/2/2;
+  margin-bottom: 3px;
 }
 body div #scrollable-div #list li label input {
   margin-right: 10px;
   cursor: pointer;
   height: 12;
+}
+body div #scrollable-div #list li form {
+  margin-left: 25px;
+}
+body div #scrollable-div #list li #buttons-container {
+  grid-area: 1/2/2/2;
+  margin: 0px;
+  background-color: transparent;
 }
 body div #scrollable-div #list li button {
   border: 0px;
@@ -100,11 +140,17 @@ body div #scrollable-div #list li button:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-size: 20px;
 }
 #bottom-container #clear {
   margin: 10px;
   margin-top: 15px;
   margin-bottom: 16;
+  font-size: 17px;
+  color: white;
+  border-color: #333;
+  border-radius: 5px;
+  background-color: rgb(70, 182, 252);
 }
 #bottom-container #clear:hover {
   cursor: pointer;
