@@ -86,7 +86,10 @@ var app =
 	// * Clear button, remove all & refresh page
 	clear.addEventListener("click", () => {
 	    console.log("pressed");
+	    // localStorage.removeItem("TASKS");
 	    tasks = [];
+	    saveTasks();
+	    pendingTasks.innerText = "You have 0 pending tasks";
 	    initUI();
 	});
 	// * Adds 'li' element for Task object
@@ -180,8 +183,8 @@ var app =
 	            task.title = editInput === null || editInput === void 0 ? void 0 : editInput.value;
 	            saveTasks();
 	            activeEdit = false;
-	            initUI();
 	        }
+	        initUI();
 	    });
 	}
 	// * Updates task number on UI
